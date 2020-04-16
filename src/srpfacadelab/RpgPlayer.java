@@ -62,6 +62,10 @@ public class RpgPlayer {
         if (item.isRare())
             gameEngine.playSpecialEffect("cool_swirly_particles");
 
+        if (item.isRare() && item.isUnique()) {
+            gameEngine.playSpecialEffect("blue_swirly");
+        }
+
         inventory.add(item);
 
         calculateStats();
