@@ -22,6 +22,7 @@ public class Main {
 
 
         //You could make players pick up items
+        Facade.pickUpItem(player1, axe);
         //You could make players use items
         //etc.
         //You don't need to worry about it for the assignment

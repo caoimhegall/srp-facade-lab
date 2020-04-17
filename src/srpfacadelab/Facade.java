@@ -1,10 +1,9 @@
 package srpfacadelab;
-
 import java.util.List;
 
 public class Facade {
 
-    public void useItem(RpgPlayer player, Item item) {
+    public static void useItem(RpgPlayer player, Item item) {
         if (item.getName().equals("Stink Bomb"))
         {
             List<IEnemy> enemies = player.getGameEngine().getEnemiesNear(player);
@@ -15,12 +14,12 @@ public class Facade {
         }
     }
 
-    public boolean pickUpItem(RpgPlayer player, Item item) {
-        int weight = player.calculateInventoryWeight();
-        if (weight + item.getWeight() > player.carryingCapacity)
+    public static boolean pickUpItem(RpgPlayer player, Item item) {
+        int weight = InventoryManagement.calculateInventoryWeight(player);
+        if (weight + item.getWeight() > player.getCarryingCapacity())
             return false;
 
-        if (item.isUnique() && player.checkIfItemExistsInInventory(item))
+        if (item.isUnique() && InventoryManagement.checkIfItemExistsInInventory(player, item))
             return false;
 
         // Don't pick up items that give health, just consume them.
@@ -31,20 +30,20 @@ public class Facade {
                 player.setHealth(player.getMaxHealth());
 
             if (item.getHeal() > 500) {
-                gameEngine.playSpecialEffect("green_swirly");
+                player.getGameEngine().playSpecialEffect("green_swirly");
             }
 
             return true;
         }
 
         if (item.isRare())
-            gameEngine.playSpecialEffect("cool_swirly_particles");
+            player.getGameEngine().playSpecialEffect("cool_swirly_particles");
 
         if (item.isRare() && item.isUnique()) {
-            gameEngine.playSpecialEffect("blue_swirly");
+            player.getGameEngine().playSpecialEffect("blue_swirly");
         }
 
-        inventory.add(item);
+        InventoryManagement.addToInventory(player, item);
 
         player.calculateStats();
 

@@ -71,18 +71,18 @@ public class RpgPlayer {
         calculateStats();
 
         return true;
-    }*/
+    }
     public void addToInventory(Item item) {
         inventory.add(item);
-    }
+    }*/
 
-    private void calculateStats() {
+    public void calculateStats() {
         for (Item i: inventory) {
             armour += i.getArmour();
         }
     }
 
-    private boolean checkIfItemExistsInInventory(Item item) {
+    /*private boolean checkIfItemExistsInInventory(Item item) {
         for (Item i: inventory) {
             if (i.getId() == item.getId())
                 return true;
@@ -96,7 +96,7 @@ public class RpgPlayer {
             sum += i.getWeight();
         }
         return sum;
-    }
+    }*/
 
     public void takeDamage(int damage) {
         if (damage < armour) {
@@ -140,4 +140,13 @@ public class RpgPlayer {
     private void setCarryingCapacity(int carryingCapacity) {
         this.carryingCapacity = carryingCapacity;
     }
+
+    public IGameEngine getGameEngine() {
+        return gameEngine;
+    }
+
+    public List<Item> getInventory(){
+        return inventory;
+    }
+
 }
