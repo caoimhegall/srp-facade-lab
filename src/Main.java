@@ -1,6 +1,5 @@
-import srpfacadelab.IGameEngine;
-import srpfacadelab.RpgPlayer;
-import srpfacadelab.SimpleGameEngine;
+import srpfacadelab.*;
+
 
 public class Main {
 
@@ -14,8 +13,13 @@ public class Main {
         ((SimpleGameEngine) game).addPlayer(player2);
 
         //Here you would create items
+        Item axe = new Item(1, "Axe", 0, 2, 8, false, false);
+        Item shield = new Item(2, "Shield", 0, 5, 3, false, false);
+        Item key = new Item(3, "Key", 0, 0, 0, true, true);
+        Item medicine = new Item(4, "Medicine", 4, 0, 0, false, false);
 
         //Here you would tell the history and make the game happen
+
 
         //You could make players pick up items
         //You could make players use items

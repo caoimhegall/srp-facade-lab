@@ -26,7 +26,7 @@ public class RpgPlayer {
         carryingCapacity = MAX_CARRYING_CAPACITY;
     }
 
-    public void useItem(Item item) {
+    /*public void useItem(Item item) {
         if (item.getName().equals("Stink Bomb"))
         {
             List<IEnemy> enemies = gameEngine.getEnemiesNear(this);
@@ -71,6 +71,9 @@ public class RpgPlayer {
         calculateStats();
 
         return true;
+    }*/
+    public void addToInventory(Item item) {
+        inventory.add(item);
     }
 
     private void calculateStats() {
