@@ -96,7 +96,7 @@ public class RpgPlayer {
             sum += i.getWeight();
         }
         return sum;
-    }*/
+    }
 
     public void takeDamage(int damage) {
         if (damage < armour) {
@@ -107,7 +107,7 @@ public class RpgPlayer {
         health -= damageToDeal;
 
         gameEngine.playSpecialEffect("lots_of_gore");
-    }
+    }*/
 
     public int getHealth() {
         return health;

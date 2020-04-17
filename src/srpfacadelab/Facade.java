@@ -49,4 +49,17 @@ public class Facade {
 
         return true;
     }
+
+    public static void takeDamage(RpgPlayer player, int damage) {
+        if (damage < player.getArmour()) {
+            player.getGameEngine().playSpecialEffect("parry");
+        }
+
+        int damageToDeal = damage - player.getArmour();
+        if(InventoryManagement.calculateInventoryWeight(player) < (player.getCarryingCapacity() * .5))
+            damageToDeal *= .75;
+        player.setHealth(player.getHealth() - damageToDeal);
+
+        player.getGameEngine().playSpecialEffect("lots_of_gore");
+    }
 }

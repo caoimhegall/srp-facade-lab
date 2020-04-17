@@ -17,13 +17,17 @@ public class Main {
         Item shield = new Item(2, "Shield", 0, 5, 3, false, false);
         Item key = new Item(3, "Key", 0, 0, 0, true, true);
         Item medicine = new Item(4, "Medicine", 4, 0, 0, false, false);
+        Item stinkBomb = new Item(5, "Stink Bomb", 0, 3, 4, false, true);
 
         //Here you would tell the history and make the game happen
 
 
         //You could make players pick up items
         Facade.pickUpItem(player1, axe);
+        Facade.pickUpItem(player2, stinkBomb);
         //You could make players use items
+        Facade.useItem(player2, stinkBomb);
+        Facade.takeDamage(player1, 100);
         //etc.
         //You don't need to worry about it for the assignment
         //This is only to show how the 'external world' would instantiate the structure.
