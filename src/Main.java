@@ -21,13 +21,8 @@ public class Main {
 
         //Here you would tell the history and make the game happen
 
-
         //You could make players pick up items
-        Facade.pickUpItem(player1, axe);
-        Facade.pickUpItem(player2, stinkBomb);
         //You could make players use items
-        Facade.useItem(player2, stinkBomb);
-        Facade.takeDamage(player1, 100);
         //etc.
         //You don't need to worry about it for the assignment
         //This is only to show how the 'external world' would instantiate the structure.
